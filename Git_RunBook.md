@@ -1,3 +1,9 @@
+# Install Git
+## Centos 7
+`sudo yum install git -y`
+
+https://www.digitalocean.com/community/tutorials/how-to-install-git-on-centos-7
+
 # Check out a single file from remote repo
 1. Add remote repo
     `#git remote add repo1 <repoURL>`
