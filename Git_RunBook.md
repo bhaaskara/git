@@ -5,7 +5,7 @@
 https://www.digitalocean.com/community/tutorials/how-to-install-git-on-centos-7
 
 ## Windows 10
-Git bash - CLI
+Git bash - CLI (All the linux commands works in gitbash shell)
 Git desktop - GUI
     Useful with obsidian
 
@@ -107,3 +107,55 @@ You can also use Visual Studio (VS) Code to clone your repository. If you aren't
     
 6.  Your repository will be cloned and stored in the location you chose. You can then open the repository and begin working on it in VS Code.
 
+# Git operations
+![](Pasted%20image%2020220508132809.png)
+![](Pasted%20image%2020220508131325.png)
+
+
+`git init` : Initializes a new empty local repository
+`git clone` : Creates a copy of the original repository from Github on local machine.
+`git fork` : Creates a copy of the original repository on your github account.
+
+`git remote add origin <repo_url>` : Add a remote repo on your local machine
+`git pull origin master` : Copy all the files from master branch of remote repo to your local repo
+`git push origin master` : Push your local changes into central remote repo
+
+## Create a new local repo
+ref: https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
+
+
+```
+1. Create a directory
+2. Initialize the new repo (Dir can have files/no need to be empty)
+3. Configure the user details
+```
+
+1. Configure git global values 
+  ```
+  git config --global user.name "test user"
+  git config --global user.email "testemail@email.com"
+  ```
+2. Create a directory
+    `mkdir <test_repo>`
+    `cd <test_repo>`
+3. Initialize the new repo
+    `git init`
+4. Check the status
+    `git status` 
+5. Add the file to staging area, git starts tracking the changes
+    `git add <file>`
+
+    Note: `git rm --cached <file>` to unstage
+6. Commit the changes to the local repo, it commits all the files
+    `git commit -m "commit message"`
+7. List all the commits
+    `git log`
+8. show the changes with in a commit
+    `git show "commit ID"`
+
+## Sync the changes with Remote repo
+1. Add a remote repo
+    `git remote add origin https://github.com/bhaaskara/git.git`
+    Note: To create a new repo from cli use GitHub cli - `gh`
+2. Push the changes to remote repo
+    ``
