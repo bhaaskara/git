@@ -62,13 +62,14 @@ https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-acc
 # Remote Repos
 ## Add a remote Repo
 ```sh
-git remote add <local_repo_name> URL(https://github.com/bhaaskara/git.git)
+git remote add <rigin/alias> URL(https://github.com/bhaaskara/git.git)
 ```
-where `local_repo_name` is a unique remote name.
 
 ## List the remote repos
  `git remote -v`
 
+## Rename the alias
+`git remote rename origin repo1`
 ## Change remote repo
  ```sh
  git remote set-url <an-existing-remote-name> <url>`
@@ -76,7 +77,7 @@ where `local_repo_name` is a unique remote name.
 
 ## Delete a remote repo
  ```sh
- git remote delete <local_repo_name>`
+ git remote delete <alias/origin>`
 ```
 
 # Clone a repo
