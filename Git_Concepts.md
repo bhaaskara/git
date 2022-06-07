@@ -117,6 +117,7 @@ save the uncommitted changes and untracked files temporarily, and gives a clean 
 
 ## Rebase
 - gives a clean commit history
+- Rebasing is **a process to reapply commits on top of another base trip**. It is used to apply a sequence of commits from distinct branches into a final commit. It is an alternative of git merge command. It is a linear process of merging.
 
 
 **Never rebase a public repo**
@@ -140,6 +141,29 @@ save the uncommitted changes and untracked files temporarily, and gives a clean 
 which one is better
 ![](Pasted%20image%2020220514170820.png)
 
+## Tag
+Tags are ref's that point to specific points in Git history. Tagging is generally used to capture a point in history that is used for a marked version release (i.e. v1.0.1). A tag is like a branch that doesn’t change. Unlike branches, tags, after being created, have no further history of commits.
+
+Git supports two different types of tags, annotated and lightweight tags. they differ in the amount of accompanying meta data they store. 
+**A best practice is to consider Annotated tags as public, and Lightweight tags as private.** Annotated tags store extra meta data such as: the tagger name, email, and date. This is important data for a public release. Lightweight tags are essentially 'bookmarks' to a commit, they are just a name and a pointer to a commit, useful for creating quick links to relevant commits.
+
+## Rewriting history (change commit message)
+### Change most recent commit messge
+`git commit --amend -m "an updated commit message"`
+
+### Changing committed files
+```sh
+# Edit hello.py and main.py  
+git add hello.py  
+git commit   
+# Realize you forgot to add the changes from main.py   
+git add main.py   
+git commit --amend --no-edit
+```
+The `--no-edit` flag will allow you to make the amendment to your commit without changing its commit message. The resulting commit will replace the incomplete one, and it will look like we committed the changes to `hello.py` and `main.py` in a single snapshot.
+
+### Don’t amend public commits
+Amended commits are actually entirely new commits and the previous commit will no longer be on your current branch. This has the same consequences as resetting a public snapshot. Avoid amending a commit that other developers have based their work on. This is a confusing situation for developers to be in and it’s complicated to recover from.
 
 # Git operation
 Create a new local repo
