@@ -57,3 +57,6 @@ compare local and remote branch
 
 `git revert <commitID>`
 `git revert HEAD` # Reverts last commit
+
+`git log --graph`
+`git log --graph --decorate --oneline`

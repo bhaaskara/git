@@ -3,11 +3,13 @@
 `sudo yum install git -y`
 
 https://www.digitalocean.com/community/tutorials/how-to-install-git-on-centos-7
+Check the version: `git --version`
 
 ## Windows 10
 Git bash - CLI (All the linux commands works in gitbash shell)
 Git desktop - GUI
     Useful with obsidian
+
 
 # Check out a single file from remote repo
 1. Add remote repo
@@ -26,34 +28,74 @@ Git desktop - GUI
    > Note: make sure ur on main branch folder within `gitbash/shell`
 
 # Working with Repositories
+## Initialize an empty repo on to your filesystem
+1. Create a dir and files to track
+    ```sh
+    mkdir devops
+    cd devops
+    echo "file A" > fileA.txt
+    echo "file B" > fileB.txt
+```
+2. Initialize the repo
+    `git init` # Initializes an empty repo, creates .git dir.
+3. Add files to the repo
+    `git add .`
+    `git status`
+4. Commit the changes
+    `git commit -m "Initial commit"`
+5. Check the status or log
+    `git status`
+    `git log`
+
+![](Pasted%20image%2020220718132840.png)
+
+## Git configuration
+```sh
+git config list
+git config --global user.name "User Name"
+git config --global user.email "email@gmail.com"
+```
+
+## Make changes for the files
+1. Modify/Update a file
+2. Add file to staging area
+    `git add <file.txt>`
+3. Check the status
+    `git status`
+1. Commit the changes
+    `git commit -m "commit message"`
+
+## Restore files to previous commit version
+1. List the version or commits
+    `git log`
+2. Restore
+    `git checkout <commitID>`
+
+```sh
+git add
+git restore # To discard changes in Working directory
+git commit -a
+git diff
+```
+
+## Push changes to remote repo
+```sh
+git remote add origin https://github.com/alashro/devops.git
+git branch -M main
+git push -u origin main
+```
+
+```sh
+git push --all origin # will push all the branches too
+git push origin # pushes only the master branch changes
+```
 ## Clone a repo
 ```sh
  git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
  git clone ssh git@github.com:bhaaskara/hello-world.git
 ```
 
-## Modify a file
-Modify the files using any of the editors
 
-## Add file to staging area
-```sh
-git add .  #Adds all the files to staging area
-```
-
-## Check the status
-```sh
-git status # Check the files to be commited
-```
-
-## Commit the changes
-```sh
-git commit -m "commit message"
-```
-
-## Push the changes to master/remote repo
-```sh
-git push origin master
-```
 
 # Creating personal access token github
 https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
@@ -160,3 +202,61 @@ ref: https://docs.github.com/en/get-started/importing-your-projects-to-github/im
     Note: To create a new repo from cli use GitHub cli - `gh`
 2. Push the changes to remote repo
     ``
+# Working with Branches
+1. Create a branch
+    `git branch <feature>`
+2. Checkout the branch
+    `git checkout <feature>`
+
+Note: at any point of time you can switch to any branch using `git checkout`
+
+## Merging
+### Implicit or fast forward merge
+This is the simplest merging method.
+
+You create a branch(named feature) out of Master.
+Made changes/commits in the new branch.
+Merge the Branch with Master
+During this time no changes made to the master.
+
+Note: when you want to merge feaure branch with master branch
+          check out to master branch
+          merge with feature branch
+          
+![](Pasted%20image%2020220718185217.png)
+
+### Explicit/Recursive/3-way Merge
+You create a branch(named feature) out of Master.
+Made changes/commits in the new branch.
+Changes happened in master also in parallel.
+This Merge is called as a Recursive merge and this creates a new commit on the master to merge.
+This copies all the feature branch history and commit message on to master branch history
+![](Pasted%20image%2020220718191227.png)
+
+### Squash merge
+This is used to condense the git history of the feature branches when a merge is 
+carried Out. 
+Here instead Of each commit history of the feature branch being added to the 
+commit history of the master branch, the squash merge will take all the file 
+changes and then just create one single new commit on the master branch. 
+This helps to keep the commit history clean when it comes to the master branch.
+
+`git merge --squash <featureBranchName>`
+
+# Merge conflict
+When a merge conflict happens `git merge`  will shows the files with the conflicts
+
+Then open the file in master branch and keep the changes you need
+![](Pasted%20image%2020220719105153.png)
+after edit
+![](Pasted%20image%2020220719105244.png)
+
+Then commit
+```sh
+git add .
+git commit -m "conflict resolved"
+
+```
+
+# Pull changes from Git repo
+`git pull`

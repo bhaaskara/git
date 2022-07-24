@@ -11,7 +11,7 @@ Version control systems are software tools that help software teams manage chang
 
 # Types of Version control systems
 1. Local VCS
-2. Central Version Control System, Ex: svn
+2. Central Version Control System, Ex: Subversion, CVS, Perforce, Teamfoundation version control
 3. Distributed/Decentralized Version Control System, Ex: Git, Bitbucket
 
 # Centralized vs Distributed VCS
@@ -32,6 +32,10 @@ A repository(or a repo) is a directory or storage space where your projects live
 
 ![](Pasted%20image%2020220512234119.png)
 
+## .git Directory
+- Local database
+- Maintains entire history of your changes
+- Contains information on the commits, remote repo address
 
 ## Git features
 - Economical - its released under GPL license. its free and open source.
@@ -74,15 +78,25 @@ The master branch is a default branch in Git. It is instantiated when first comm
 
 Master branch is the branch in which all the changes eventually get merged back.
 
+## Head and Origin
+![](Pasted%20image%2020220718184743.png)
+**HEAD** is a pointer to the current position in the code tree, and in this example its pointing to feature branch.
+**Origin/master** is a pointer to the remote repo in the code tree. Here it shows that your remote repo is pointing to the second commit.
+**master** is a pointer to the master branch of the local repo and here both local master and remote master are at the same point.
+
 ## Rebase
 Updates the base branch of the current branch, with the new commits in the base branch.
 
 ## Pull request
-Notifies developers about changes you've pushed to a branch in a repo.
+Notifies senior developers/lead about changes you would like to pushed to a branch in a repo.
 Acknowledge and review changes
+
 you can create pull requests in two ways.
   - From with in the branch
   - From a forked repo
+
+Note: Push is directly push your changes to the master while pull request gives a control over pushing your changes by giving an option to review the changes before merging.
+
 
 ## Fork
 - Copy of other repository. Allows you to freely experiment your changes without affecting original project.
@@ -194,6 +208,32 @@ Stash uncommitted changes
 `git stash`
 `git stash apply`
 
+# Git Flow
+![](Pasted%20image%2020220719161941.png)
+![](Pasted%20image%2020220719161926.png)
+![](Pasted%20image%2020220719162102.png)
+![](Pasted%20image%2020220719162122.png)
+![](Pasted%20image%2020220719162149.png)
+
+
+
+You can download and install Git flow
+This can be used in addition to your normal git commands.
+It can be used to maintain ur branches.
+
+## Git credentials
+When accessing Git repositories HTTPS, you need to enter credentials Which 
+consists of your user name and password. 
+If you don't want to enter your user name and password every time you work 
+With Cit repositories, you can use the Git credential system. 
+The Git credential System has a cache mechanism that can be used to cache 
+your credentials, 
+There are different settings when it comes to the cache 
+The default setting is not to cache anything at all 
+The next cache settings is to keep the credentials in memory for a certain period 
+Of time. 
+You can also define a setting to save the credentials in a plain-text file on disk
+
 # Workflow
 What is work flow
 - series of tasks
@@ -201,3 +241,6 @@ What is work flow
 - workflow is a change management
 ## Git flow vs Github flow
 ![](Pasted%20image%2020220513211155.png)
+
+# Github enterprise 
+Git can be hosted on on-premise server using Github enterprise.
