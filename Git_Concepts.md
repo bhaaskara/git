@@ -118,6 +118,8 @@ User can also use third party Merge-Tools with Git
 `git config --global merge.tool kdiff3`
 `git mergetool` # this will open the merge tool GUI
 
+
+
 ## Stashing
 save the uncommitted changes and untracked files temporarily, and gives a clean working dir.
 
@@ -161,6 +163,10 @@ Tags are ref's that point to specific points in Git history. Tagging is generall
 Git supports two different types of tags, annotated and lightweight tags. they differ in the amount of accompanying meta data they store. 
 **A best practice is to consider Annotated tags as public, and Lightweight tags as private.** Annotated tags store extra meta data such as: the tagger name, email, and date. This is important data for a public release. Lightweight tags are essentially 'bookmarks' to a commit, they are just a name and a pointer to a commit, useful for creating quick links to relevant commits.
 
+`git tag -a "v1.0" -m "this is version 1"`  Create a tag
+`git tag` list the tags
+`git show v1.0` Details of a tag
+
 ## Rewriting history (change commit message)
 ### Change most recent commit messge
 `git commit --amend -m "an updated commit message"`
@@ -179,6 +185,11 @@ The `--no-edit` flag will allow you to make the amendment to your commit witho
 ### Don’t amend public commits
 Amended commits are actually entirely new commits and the previous commit will no longer be on your current branch. This has the same consequences as resetting a public snapshot. Avoid amending a commit that other developers have based their work on. This is a confusing situation for developers to be in and it’s complicated to recover from.
 
+## Branch Protection
+![](Pasted%20image%2020220820124144.png)
+
+- allows to add approvals before merging any changes to the branch.
+- 
 # Git operation
 Create a new local repo
 `git init`
@@ -207,6 +218,9 @@ Bundle your repo
 Stash uncommitted changes
 `git stash`
 `git stash apply`
+
+Remove any stale objects
+`git prune --expire now`
 
 # Git Flow
 ![](Pasted%20image%2020220719161941.png)

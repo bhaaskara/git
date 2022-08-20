@@ -29,7 +29,7 @@ Git desktop - GUI
 
 # Working with Repositories
 ## Initialize an empty repo on to your filesystem
-1. Create a dir and files to track
+1. Create a dir and add files to track
     ```sh
     mkdir devops
     cd devops
@@ -68,6 +68,7 @@ git config --global user.email "email@gmail.com"
 ## Restore files to previous commit version
 1. List the version or commits
     `git log`
+    `git log -all` # List all the commits
 2. Restore
     `git checkout <commitID>`
 
@@ -77,6 +78,10 @@ git restore # To discard changes in Working directory
 git commit -a
 git diff
 ```
+
+## Unstage a file/changes
+`git rm --cached <file1>`
+check out `git restore --staged <file1>` and `git reset`
 
 ## Push changes to remote repo
 ```sh
@@ -219,7 +224,7 @@ Made changes/commits in the new branch.
 Merge the Branch with Master
 During this time no changes made to the master.
 
-Note: when you want to merge feaure branch with master branch
+Note: when you want to merge feature branch with master branch
           check out to master branch
           merge with feature branch
           
@@ -258,5 +263,6 @@ git commit -m "conflict resolved"
 
 ```
 
+**Note:** To leave the changes and to start fresh you can use `git merge --abort` or `git rebase --abort` 
 # Pull changes from Git repo
 `git pull`
