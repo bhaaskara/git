@@ -27,6 +27,7 @@ fork a repo | `git fork`
 Files tracked by git | `git ls-files`
 add remote repo | `git remote add origin https://github.com/bhaaskara/git.git`
 List remote repos | `git remote -v `
+Changes made on a file | `git blame <file>`
 
 # Branch
 Usage | Command
