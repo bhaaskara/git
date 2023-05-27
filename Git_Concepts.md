@@ -90,7 +90,7 @@ Updates the base branch of the current branch, with the new commits in the base 
 ## Pull request
 Notifies senior developers/lead about changes you would like to pushed to a branch in a repo.
 Acknowledge and review changes
-
+Pull requests are referred as merge requests on gitlab platform.
 you can create pull requests in two ways.
   - From with in the branch
   - From a forked repo
