@@ -63,3 +63,39 @@ compare local and remote branch
 `git log --all`
 `git log --graph`
 `git log --graph --decorate --oneline`
+
+# Coding snippets
+## Color code the text
+**Text with yellow background and white  bold text**
+```
+echo -e "\e[1;37;43m Go head and apply the pipeline to create the Stack.\e[0m";
+```
+## while loop
+```
+- >
+  while true; do
+    if [ "$STATUS" == "CREATE_COMPLETE" ]; then
+      echo "Change set creation is complete"
+      break
+    else
+      echo "Waiting for 5 seconds..."
+      sleep 5
+    fi
+    STATUS=$(aws cloudformation describe-change-set --stack-name ${STACK} --change-set-name ${CHANGE_SET} --query 'Status' --output text)
+  done
+```
+## For loop
+```
+- >
+  for ((i=0; i<48; i++)); do
+    if [ "$STATUS" == "CREATE_COMPLETE" ]; then
+      echo "Change set creation completed."
+      break
+    else
+      echo "Waiting for Changeset creation completed"
+      echo "Chaneset status:$STATUS"
+      sleep 5
+    fi
+    STATUS=$(aws cloudformation describe-change-set --stack-name ${STACK} --change-set-name ${CHANGE_SET} --query 'Status' --output text)
+  done
+```
