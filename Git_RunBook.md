@@ -28,6 +28,8 @@ Git desktop - GUI
    > Note: make sure ur on main branch folder within `gitbash/shell`
 
 # Working with Repositories
+## General Info
+- never replace the .git directory, it contains the intialized repo info.
 ## Initialize an empty repo on to your filesystem
 1. Create a dir and add files to track
     ```sh
@@ -100,7 +102,11 @@ git push origin # pushes only the master branch changes
  git clone ssh git@github.com:bhaaskara/hello-world.git
 ```
 
-
+## Clone a repo using personal access token
+```
+git clone https://<username>:<access token>@gitlab.agile.nat.bt.com/
+```
+username is not your company email id, go to gitlab settings -> user settings -> account -> change username 
 
 # Creating personal access token github
 https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
