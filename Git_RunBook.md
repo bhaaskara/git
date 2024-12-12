@@ -107,7 +107,16 @@ git push origin # pushes only the master branch changes
 git clone https://<username>:<access token>@gitlab.agile.nat.bt.com/
 ```
 username is not your company email id, go to gitlab settings -> user settings -> account -> change username 
+```
+# Check the status, new files
+git status
 
+# add the files to repo, it adds all the files in a folder
+git add .
+
+# push the files to remote repo, this pushes to main branch
+git push
+```
 # Creating personal access token github
 https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
