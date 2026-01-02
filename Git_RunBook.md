@@ -117,6 +117,14 @@ git add .
 # push the files to remote repo, this pushes to main branch
 git push
 ```
+
+## Full Git Mirror Clone & Push
+Clone the source repository as a mirror, This clones all branches, tags, and refs.
+```
+git clone --mirror https://gitlab.com/yourgroup/old-repo.git
+cd old-repo.git
+git push --mirror https://gitlab.com/yourgroup/new-repo.git
+```
 # Creating personal access token github
 https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
